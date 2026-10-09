@@ -218,118 +218,108 @@ export default function AdminDashboardPage() {
           STAT CARDS
       ================================================= */}
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-        <Stat
-          label="Registered Users"
-          value={data.totalUsers}
-        />
+  <div className="rounded-xl border border-slate-200 border-l-4 border-l-blue-500 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+    <p className="text-sm font-medium text-slate-500">👥 Registered Users</p>
+    <p className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+      {data.totalUsers ?? 0}
+    </p>
+    <p className="mt-1 text-xs text-slate-400">Total registered accounts</p>
+  </div>
 
-        <Stat
-          label="GitHub Analyses"
-          value={data.totalAnalyses}
-        />
+  <div className="rounded-xl border border-slate-200 border-l-4 border-l-violet-500 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+    <p className="text-sm font-medium text-slate-500">📊 GitHub Analyses</p>
+    <p className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+      {data.totalAnalyses ?? 0}
+    </p>
+    <p className="mt-1 text-xs text-slate-400">Total analyses completed</p>
+  </div>
 
-        <Stat
-          label="New Users"
-          value={data.newUsers}
-        />
+  <div className="rounded-xl border border-slate-200 border-l-4 border-l-emerald-500 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+    <p className="text-sm font-medium text-slate-500">👤 New Users</p>
+    <p className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+      {data.newUsers ?? 0}
+    </p>
+    <p className="mt-1 text-xs text-slate-400">New user accounts</p>
+  </div>
 
-        <Stat
-          label="Admin Users"
-          value={data.adminUsers}
-        />
+  <div className="rounded-xl border border-slate-200 border-l-4 border-l-amber-500 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+    <p className="text-sm font-medium text-slate-500">🛡️ Admin Users</p>
+    <p className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+      {data.adminUsers ?? 0}
+    </p>
+    <p className="mt-1 text-xs text-slate-400">Administrator accounts</p>
+  </div>
 
-      </div>
-
+</div>
       {/* =================================================
           QUICK ACTIONS
       ================================================= */}
 
-      <Card
-        title="Quick Actions"
-        className="mb-6"
-      >
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+<Card title="Quick Actions" className="mb-6">
+  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-          {/* USERS */}
-
-          <Link
-            href="/admin/users"
-            className="group rounded-xl border border-slate-300 bg-slate-100 p-4 transition hover:border-emerald-500/50 hover:bg-slate-200"
-          >
-            <div className="text-2xl">
-              👥
-            </div>
-
-            <div className="mt-3 font-medium text-slate-900 group-hover:text-indigo-700">
-              Manage Users
-            </div>
-
-            <div className="mt-1 text-xs leading-5 text-slate-500">
-              View and manage registered users
-            </div>
-          </Link>
-
-          {/* APP USAGE */}
-
-          <Link
-            href="/admin/app-usage"
-            className="group rounded-xl border border-slate-300 bg-slate-100 p-4 transition hover:border-emerald-500/50 hover:bg-slate-200"
-          >
-            <div className="text-2xl">
-              📊
-            </div>
-
-            <div className="mt-3 font-medium text-slate-900 group-hover:text-indigo-700">
-              App Usage
-            </div>
-
-            <div className="mt-1 text-xs leading-5 text-slate-500">
-              View platform usage statistics
-            </div>
-          </Link>
-
-          {/* PROFILE */}
-
-          <Link
-            href="/admin/profile"
-            className="group rounded-xl border border-slate-300 bg-slate-100 p-4 transition hover:border-emerald-500/50 hover:bg-slate-200"
-          >
-            <div className="text-2xl">
-              👤
-            </div>
-
-            <div className="mt-3 font-medium text-slate-900 group-hover:text-indigo-700">
-              Admin Profile
-            </div>
-
-            <div className="mt-1 text-xs leading-5 text-slate-500">
-              Manage administrator profile
-            </div>
-          </Link>
-
-          {/* USER DASHBOARD */}
-
-          <Link
-            href="/dashboard"
-            className="group rounded-xl border border-slate-300 bg-slate-100 p-4 transition hover:border-emerald-500/50 hover:bg-slate-200"
-          >
-            <div className="text-2xl">
-              🏠
-            </div>
-
-            <div className="mt-3 font-medium text-slate-900 group-hover:text-indigo-700">
-              User Dashboard
-            </div>
-
-            <div className="mt-1 text-xs leading-5 text-slate-500">
-              Open the normal application dashboard
-            </div>
-          </Link>
-
+    {/* MANAGE USERS */}
+    <Link
+      href="/admin/users"
+      className="group rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-50 text-2xl">
+          👥
         </div>
-      </Card>
+        <h3 className="font-semibold text-slate-800 transition-colors group-hover:text-indigo-600">
+          Manage Users
+        </h3>
+      </div>
+
+      <p className="mt-4 text-sm leading-5 text-slate-500">
+        View and manage registered users
+      </p>
+    </Link>
+
+    {/* ANALYSIS DETAILS */}
+    <Link
+      href="/admin/analyses"
+      className="group rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-50 text-2xl">
+          📊
+        </div>
+        <h3 className="font-semibold text-slate-800 transition-colors group-hover:text-indigo-600">
+          Analysis Details
+        </h3>
+      </div>
+
+      <p className="mt-4 text-sm leading-5 text-slate-500">
+        View and manage project analyses
+      </p>
+    </Link>
+
+    {/* PROFILE */}
+    <Link
+      href="/admin/profile"
+      className="group rounded-xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-amber-50 text-2xl">
+          👤
+        </div>
+        <h3 className="font-semibold text-slate-800 transition-colors group-hover:text-indigo-600">
+          Profile
+        </h3>
+      </div>
+
+      <p className="mt-4 text-sm leading-5 text-slate-500">
+        View and manage your administrator profile
+      </p>
+    </Link>
+
+  </div>
+</Card>
+
 
       {/* =================================================
           CHARTS
